@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: ${application-name}
+  profiles:
+    active: ${profiles.active}
+  main:
+    log-startup-info: ${log-startup-info}
+  liquibase:
+    enabled: ${liquibase-enabled}
+    change-log: classpath:db/changelog/changelog.yaml
+  datasource:
+    username: ${datasource.username}
+    password: ${datasource.password}
+    url: jdbc:postgresql://${datasource.host}:${datasource.port}/${datasource.name}
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: ${hibernate.ddl-auto}
+    show-sql: ${show-sql}
+
+# swagger-ui custom path
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  show-actuator: ${show-actuator}
+
+server:
+  port: ${server.port}
+
+logging:
+  level:
+    root: ${logging-level-root} # TRACE, DEBUG, INFO, WARN, ERROR, FATAL
+  file:
+    name: ${logging-level-file-name}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ${include}
+  endpoint:
+    health:
+      show-details: ${show-details}

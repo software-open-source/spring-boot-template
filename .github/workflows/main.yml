@@ -1,0 +1,45 @@
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+name: project spring-boot-template
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 21
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+        architecture: x64
+        server-id: github
+        server-username: richard-vu
+        server-password: ${{secrets.SOFTWARE_OPEN_SOURCE_TOKEN}}
+    
+    - name: Copy settings.xml  
+      run: |  
+          mkdir -p ~/.m2  
+          cp .github/workflows/maven/settings.xml ~/.m2/settings.xml
+        
+    - name: Build with Maven
+      run: SOFTWARE_OPEN_SOURCE_TOKEN=${{ secrets.SOFTWARE_OPEN_SOURCE_TOKEN }} mvn clean package -Dmaven.test.skip=true --settings settings.xml
+
+    - name: Build & push Docker image
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+        image: richardvuwork123/spring-boot-template
+        tags: latest
+        registry: docker.io
+        dockerfile: Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}

@@ -1,0 +1,62 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Localhost DatabaseMigrationsApplication",
+            "request": "launch",
+            "mainClass": "org.software.open.source.database.migrations.DatabaseMigrationsApplication",
+            "projectName": "spring-boot-template",
+            "args": "--spring.profiles.active",
+            "env": {
+                "application-name": "spring-boot-template",
+                "profiles.active": "localhost",
+                "log-startup-info": false,
+                "liquibase-enabled": false,
+                "datasource.username": "postgres",
+                "datasource.password": "postgres",
+                "datasource.host": "localhost",
+                "datasource.port": 5432,
+                "datasource.name": "localhost-spring-boot-template",
+                "hibernate.ddl-auto": "update",
+                "show-sql": true,
+                "show-actuator": true,
+                "server.port": 9000,
+                "logging-level-root": "INFO",
+                "logging-level-file-name": "app/file.log",
+                "include": "*",
+                "show-details": "always"
+            }
+        },
+        {
+            "type": "java",
+            "name": "Develop DatabaseMigrationsApplication",
+            "request": "launch",
+            "mainClass": "org.software.open.source.database.migrations.DatabaseMigrationsApplication",
+            "projectName": "spring-boot-template",
+            "args": "--spring.profiles.active",
+            "env": {
+                "application-name": "spring-boot-template",
+                "profiles.active": "develop",
+                "log-startup-info": false,
+                "liquibase-enabled": true,
+                "datasource.username": "postgres",
+                "datasource.password": "postgres",
+                "datasource.host": "localhost",
+                "datasource.port": 5432,
+                "datasource.name": "develop-spring-boot-template",
+                "hibernate.ddl-auto": "none",
+                "show-sql": true,
+                "show-actuator": true,
+                "server.port": 9000,
+                "logging-level-root": "INFO",
+                "logging-level-file-name": "app/file.log",
+                "include": "*",
+                "show-details": "always"
+            }
+        }
+    ]
+}
