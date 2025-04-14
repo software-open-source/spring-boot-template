@@ -1,45 +1,49 @@
 spring:
   application:
-    name: ${application-name}
+    name: ${APPLICATION_NAME}
   profiles:
-    active: ${profiles.active}
+    active: ${PROFILES_ACTIVE}
   main:
-    log-startup-info: ${log-startup-info}
+    log-startup-info: ${LOG_STARTUP_INFO}
   liquibase:
-    enabled: ${liquibase-enabled}
+    enabled: ${SPRING_LIQUIBASE_ENABLED}
     change-log: classpath:db/changelog/changelog.yaml
   datasource:
-    username: ${datasource.username}
-    password: ${datasource.password}
-    url: jdbc:postgresql://${datasource.host}:${datasource.port}/${datasource.name}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
+    url: ${DATASOURCE_JDBC}://${DATASOURCE_HOST}:${DATASOURCE_PORT}/${DATASOURCE_NAME}
+
   jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: ${hibernate.ddl-auto}
-    show-sql: ${show-sql}
+      ddl-auto: ${HIBERNATE_DDL_AUTO}
+    properties:
+      transaction:
+        jta:
+          platform: org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform
+    show-sql: ${SHOW_SQL}
+    open-in-view: ${OPEN_IN_VIEW}
 
 # swagger-ui custom path
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
-  show-actuator: ${show-actuator}
+  show-actuator: ${SHOW_ACTUATOR}
 
 server:
-  port: ${server.port}
+  port: ${SERVER_PORT}
 
 logging:
   level:
-    root: ${logging-level-root} # TRACE, DEBUG, INFO, WARN, ERROR, FATAL
+    root: ${LOGGING_LEVEL_ROOT} # TRACE, DEBUG, INFO, WARN, ERROR, FATAL
   file:
-    name: ${logging-level-file-name}
+    path: ${LOGGING_FILE_PATH}
+    name: ${LOGGING_FILE_NAME}
 
 management:
   endpoints:
     web:
       exposure:
-        include: ${include}
+        include: ${INCLUDE}
   endpoint:
     health:
-      show-details: ${show-details}
+      show-details: ${SHOW_DETAILS}

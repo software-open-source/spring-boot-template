@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-template
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-boot-template
+  template:
+    metadata:
+      labels:
+        app: spring-boot-template
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - name: spring-boot-template
+          image: richardvuwork123/spring-boot-template:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: spring-boot-template-config
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+              ephemeral-storage: "1Gi"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+              ephemeral-storage: "2Gi"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-boot-template
+spec:
+  selector:
+    app: spring-boot-template
+  ports:
+    - port: 8080
+      targetPort: 8080
+  type: ClusterIP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-boot-template-nodeport
+spec:
+  selector:
+    app: spring-boot-template
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30080
+  type: NodePort

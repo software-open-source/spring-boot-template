@@ -1,0 +1,16 @@
+version: '3.8'  
+
+services:  
+  spring-app:  
+    image: richardvuwork123/spring-boot-template  
+    container_name: spring-boot-template 
+    ports:  
+      - "8080:8080" 
+    env_file:  
+      - .env  
+    restart: always  
+    # Nếu PostgreSQL đang chạy trên máy host  
+    extra_hosts:  
+      - "host.docker.internal:host-gateway"  
+    environment:  
+      - datasource.host=host.docker.internal
