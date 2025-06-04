@@ -1,4 +1,4 @@
-package org.software.open.source.spring.template.infrastructure.web.controllers;
+package org.software.open.source.spring.template.apis.controllers;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;

@@ -1,4 +1,4 @@
-package org.software.open.source.spring.template.infrastructure.web.controllers;
+package org.software.open.source.spring.template.apis.controllers;
 
 import org.software.open.source.common.apis.models.responses.Response;
 import org.software.open.source.spring.template.domain.models.commands.CreateVocabularyCommand;
@@ -28,8 +28,8 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/v1/vocabularies")
 @RequiredArgsConstructor
+@RequestMapping("/api/v1/vocabularies")
 public class VocabularyController {
 
     private final CreateVocabularyUseCase createVocabularyUseCase;

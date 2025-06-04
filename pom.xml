@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.4</version>
+		<version>3.5.0</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
@@ -51,7 +51,7 @@
 		<springdoc-openapi>2.8.6</springdoc-openapi>
 		<mapstruct.version>1.6.3</mapstruct.version>
 		<byte-buddy.version>1.17.5</byte-buddy.version>
-		<open.source.version>0.0.6</open.source.version>
+		<open.source.version>0.0.9</open.source.version>
 		<xmlunit-core.version>2.10.0</xmlunit-core.version>
 		<mockito-core.version>5.17.0</mockito-core.version>
 		<testcontainers.version>1.20.6</testcontainers.version>
@@ -127,6 +127,7 @@
 			<artifactId>common</artifactId>
 			<version>${open.source.version}</version>
 		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/org.testcontainers/testcontainers -->
 		<dependency>
 			<groupId>org.testcontainers</groupId>
