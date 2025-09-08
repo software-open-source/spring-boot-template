@@ -1,0 +1,44 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+README.md
+HELP.md
+LICENSE
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Maven
+target/
+!target/spring-boot-template.jar
+.mvn/
+mvnw
+mvnw.cmd
+pom.xml
+
+# Logs
+*.log
+logs/
+
+# Docker
+Dockerfile
+.dockerignore
+
+# GitHub
+.github/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test files
+src/test/
+
+# Temporary files
+*.tmp
+*.temp

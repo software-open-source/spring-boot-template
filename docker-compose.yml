@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  spring-app:
+    image: richardvuwork123/spring-boot-template:latest
+    container_name: vocabulary-service
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env-lc
+    restart: always
+    environment:
+      - datasource.host=postgres_container  # Tên container PostgreSQL
+      - datasource.port=5432
+      - datasource.database=vocabulary-service
+      - datasource.username=postgres
+      - datasource.password=password
+    networks:
+      - postgres-network
+
+networks:
+  postgres-network:
+    external: true
+    name: postgres_postgres

@@ -1,11 +1,18 @@
 {
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.integrated.profiles.windows": {
+        "Git Bash": {
+            "path": "C:\\Program Files\\Git\\bin\\bash.exe",
+            "icon": "terminal-bash"
+        }
+    },
     "java.compile.nullAnalysis.mode": "automatic",
     "java.configuration.updateBuildConfiguration": "automatic",
     "java.format.settings.url": ".vscode/java-formatter.xml",
     "java.configuration.runtimes": [
         {
             "name": "JavaSE-21",
-            "path": "C:/Program Files/Eclipse Adoptium/jdk-21.0.5.11-hotspot",
+            "path": "C:/Program Files/Eclipse Adoptium/jdk-21.0.7.6-hotspot"
         }
     ],
     "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx4G -Xms1G -Xlog:disable",

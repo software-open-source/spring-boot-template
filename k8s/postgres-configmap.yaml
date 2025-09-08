@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+  namespace: spring-boot-template
+data:
+  POSTGRES_DB: spring-boot-template
+  POSTGRES_USER: postgres

@@ -24,3 +24,5 @@ build/
 !**/src/test/**/build/
 /app/
 .qodo
+.idea/
+.env

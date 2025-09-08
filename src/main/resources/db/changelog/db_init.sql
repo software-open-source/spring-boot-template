@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS public.vocabulary;
 
 CREATE TABLE public.vocabulary (
 	id serial4 NOT NULL,
-	word varchar(100) NOT NULL UNIQUE,
+	word varchar(100) NOT NULL,
 	phonetic varchar(50) NOT NULL,
 	word_type varchar(50) NOT NULL,
 	word_type_en varchar(50) NOT NULL,
@@ -15,5 +15,6 @@ CREATE TABLE public.vocabulary (
 	verb_forms varchar(100) NULL,
 	example text NOT NULL,
 	example_meaning varchar(200) NOT NULL,
-	CONSTRAINT vocabulary_pkey PRIMARY KEY (id)
+	CONSTRAINT vocabulary_pkey PRIMARY KEY (id),
+	CONSTRAINT vocabulary_word_type_unique UNIQUE (word, word_type_en)
 );
