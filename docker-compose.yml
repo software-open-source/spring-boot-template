@@ -10,7 +10,7 @@ services:
       - .env-lc
     restart: always
     environment:
-      - datasource.host=postgres_container  # Tên container PostgreSQL
+      - datasource.host=postgres_container
       - datasource.port=5432
       - datasource.database=vocabulary-service
       - datasource.username=postgres
