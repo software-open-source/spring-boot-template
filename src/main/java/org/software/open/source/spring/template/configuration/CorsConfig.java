@@ -1,7 +1,7 @@
 package org.software.open.source.spring.template.configuration;
 
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
@@ -9,20 +9,23 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 @Configuration
+@EnableConfigurationProperties(CorsProperties.class) // Kích hoạt bind properties
 public class CorsConfig {
+
+    @Autowired
+    private CorsProperties corsProperties;
 
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
 
-        // Allow frontend dev origins (Vite default port 5173). Add more if needed.
-        config.setAllowedOriginPatterns(List.of("http://localhost:5173", "http://127.0.0.1:5173"));
-
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
-        config.setAllowedHeaders(List.of("Authorization", "Content-Type", "Accept", "X-Requested-With", "Origin"));
-        config.setExposedHeaders(List.of("Authorization", "Content-Type"));
-        config.setAllowCredentials(true);
-        config.setMaxAge(3600L);
+        // Gán từ biến môi trường
+        config.setAllowedOriginPatterns(corsProperties.getAllowedOriginPatterns());
+        config.setAllowedMethods(corsProperties.getAllowedMethods());
+        config.setAllowedHeaders(corsProperties.getAllowedHeaders());
+        config.setExposedHeaders(corsProperties.getExposedHeaders());
+        config.setAllowCredentials(corsProperties.getAllowCredentials());
+        config.setMaxAge(corsProperties.getMaxAge());
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
