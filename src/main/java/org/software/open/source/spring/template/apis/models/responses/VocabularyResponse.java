@@ -1,7 +1,5 @@
 package org.software.open.source.spring.template.apis.models.responses;
 
-import org.software.open.source.spring.template.io.entities.BaseEntity;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class VocabularyResponse extends BaseEntity {
+public class VocabularyResponse {
 
     private Integer id;
 
