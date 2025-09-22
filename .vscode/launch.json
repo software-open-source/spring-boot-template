@@ -10,7 +10,8 @@
             "request": "launch",
             "mainClass": "org.software.open.source.spring.template.Application",
             "projectName": "spring-boot-template",
-            "envFile": "${workspaceFolder}/.env-lc"
+            "envFile": "${workspaceFolder}/.env-lc",
+            "vmArgs": "-Duser.timezone=UTC"
         }
     ]
 }

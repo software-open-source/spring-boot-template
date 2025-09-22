@@ -17,7 +17,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "vocabulary")
-public class VocabularyEntity {
+public class VocabularyEntity extends BaseEntity {
 
     @Id
     @Column(name = "id", nullable = false)

@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.5.5</version>
+		<version>3.5.6</version>
 		<relativePath /> <!-- lookup parent from a repository -->
 	</parent>
 
@@ -51,7 +51,8 @@
 		<springdoc-openapi>2.8.6</springdoc-openapi>
 		<mapstruct.version>1.6.3</mapstruct.version>
 		<byte-buddy.version>1.17.5</byte-buddy.version>
-		<open.source.version>0.0.1000</open.source.version>
+		<uuid-creator.version>6.1.1</uuid-creator.version>
+		<open.source.version>0.0.1003</open.source.version>
 		<xmlunit-core.version>2.10.0</xmlunit-core.version>
 		<mockito-core.version>5.17.0</mockito-core.version>
 		<testcontainers.version>1.20.6</testcontainers.version>
@@ -159,6 +160,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.f4b6a3</groupId>
+			<artifactId>uuid-creator</artifactId>
+			<version>${uuid-creator.version}</version>
 		</dependency>
 	</dependencies>
 
